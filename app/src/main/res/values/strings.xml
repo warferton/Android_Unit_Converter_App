@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Unit Converter</string>
+    <string name="convertedValue">TextView</string>
+    <string name="unitValueHint">0</string>
+    <string-array name="units_array">
+        <item>Pounds</item>
+        <item>Kilograms</item>
+        <item>Grams</item>
+        <item>Ounces</item>
+        <item>Liters</item>
+        <item>Gallons</item>
+    </string-array>
+</resources>
