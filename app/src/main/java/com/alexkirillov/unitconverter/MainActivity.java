@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private ArrayList<MeasureUnit> measureUnitList;
     private MeasureUnitAdapter adapter;
-    private String other_unit_label;
+    private String other_unit_name;
     private MeasureUnit starting_unit;
 
     private TextView conversion_result_label;
@@ -84,29 +84,29 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Spinner spinner_1 = findViewById(R.id.unitSpinnerOne);
         starting_unit = new MeasureUnit(spinner_1.getSelectedItem().toString());
         Spinner spinner_2 = findViewById(R.id.unitSpinnerTwo);
-        other_unit_label = spinner_2.getSelectedItem().toString();
+        other_unit_name = new MeasureUnit(spinner_2.getSelectedItem().toString()).toString();
 
-        if(starting_unit!= null && !other_unit_label.equals("")){
+        if(starting_unit!= null && !other_unit_name.equals("")){
             Double res;//conversion result temp val
 
             switch (starting_unit.getUnitName()){
                 case "Pounds" :
-                    res = starting_unit.convertPounds(value_to_convert, other_unit_label);
+                    res = starting_unit.convertPounds(value_to_convert, other_unit_name);
                     conversion_result_label.setText(res.toString());
                     break;
 
                 case "Ounces" :
-                    res = starting_unit.convertOunces(value_to_convert, other_unit_label);
+                    res = starting_unit.convertOunces(value_to_convert, other_unit_name);
                     conversion_result_label.setText(res.toString());
                     break;
 
                 case "Kilograms" :
-                    res = starting_unit.convertKilograms(value_to_convert, other_unit_label);
+                    res = starting_unit.convertKilograms(value_to_convert, other_unit_name);
                     conversion_result_label.setText(res.toString());
                     break;
 
                 case  "Grams" :
-                    res = starting_unit.convertGrams(value_to_convert, other_unit_label);
+                    res = starting_unit.convertGrams(value_to_convert, other_unit_name);
                     conversion_result_label.setText(res.toString());
                     break;
             }

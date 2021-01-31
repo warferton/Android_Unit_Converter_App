@@ -39,14 +39,14 @@ public class MeasureUnitAdapter extends ArrayAdapter<MeasureUnit> {
             );
         }
 
-        TextView textViewName_1 = convertView.findViewById(R.id.unitNameLabel);
-//        TextView textViewName_2 = convertView.findViewById(R.id.unitSpinnerTwo);
+        TextView textViewName = convertView.findViewById(R.id.unitNameLabel);
+
 
         MeasureUnit currentItem = getItem(position);
 
         if(currentItem != null) {
-            textViewName_1.setText(currentItem.getUnitName());
-//            textViewName_2.setText(currentItem.getUnitName());
+            textViewName.setText(currentItem.getUnitName());
+
         }
         return convertView;
     }
