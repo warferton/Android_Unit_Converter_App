@@ -2,6 +2,7 @@ package com.alexkirillov.unitconverter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,45 +76,56 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-    public void convert(View view){
+    @SuppressLint({"DefaultLocale", "SetTextI18n"})
+    public void convert(View view) {
+        try {
 
-        EditText text = findViewById(R.id.convert_value);
 
-        double value_to_convert = Double.parseDouble(text.getText().toString());
+            EditText text = findViewById(R.id.convert_value);
 
-        Spinner spinner_1 = findViewById(R.id.unitSpinnerOne);
-        starting_unit = new MeasureUnit(spinner_1.getSelectedItem().toString());
-        Spinner spinner_2 = findViewById(R.id.unitSpinnerTwo);
-        other_unit_name = new MeasureUnit(spinner_2.getSelectedItem().toString()).toString();
+            double value_to_convert = Double.parseDouble(text.getText().toString());
 
-        if(starting_unit!= null && !other_unit_name.equals("")){
-            Double res;//conversion result temp val
+            Spinner spinner_1 = findViewById(R.id.unitSpinnerOne);
+            starting_unit = new MeasureUnit(spinner_1.getSelectedItem().toString());
+            Spinner spinner_2 = findViewById(R.id.unitSpinnerTwo);
+            other_unit_name = new MeasureUnit(spinner_2.getSelectedItem().toString()).toString();
 
-            switch (starting_unit.getUnitName()){
-                case "Pounds" :
-                    res = starting_unit.convertPounds(value_to_convert, other_unit_name);
-                    conversion_result_label.setText(res.toString());
-                    break;
+            if (starting_unit != null && !other_unit_name.equals("")) {
+                Double res;//conversion result temp val
 
-                case "Ounces" :
-                    res = starting_unit.convertOunces(value_to_convert, other_unit_name);
-                    conversion_result_label.setText(res.toString());
-                    break;
+                switch (starting_unit.getUnitName()) {
+                    case "Pounds":
+                        res = starting_unit.convertPounds(value_to_convert, other_unit_name);
+                        conversion_result_label.setText(String.format("%.2f", res) + " " + other_unit_name);
+                        break;
 
-                case "Kilograms" :
-                    res = starting_unit.convertKilograms(value_to_convert, other_unit_name);
-                    conversion_result_label.setText(res.toString());
-                    break;
+                    case "Ounces":
+                        res = starting_unit.convertOunces(value_to_convert, other_unit_name);
+                        conversion_result_label.setText(String.format("%.2f", res) + " " + other_unit_name);
+                        break;
 
-                case  "Grams" :
-                    res = starting_unit.convertGrams(value_to_convert, other_unit_name);
-                    conversion_result_label.setText(res.toString());
-                    break;
+                    case "Kilograms":
+                        res = starting_unit.convertKilograms(value_to_convert, other_unit_name);
+                        conversion_result_label.setText(String.format("%.2f", res) + " " + other_unit_name);
+                        break;
+
+                    case "Grams":
+                        res = starting_unit.convertGrams(value_to_convert, other_unit_name);
+                        conversion_result_label.setText(String.format("%.2f", res) + " " + other_unit_name);
+                        break;
+                }
+
+
             }
 
-
+        } catch (NullPointerException e) {
+            System.err.println("NULL POINTER EXCEPTION ENCOUNTERED. POSSIBLY CONVERT UNITS ARE THE SAME");
+            Toast.makeText(MainActivity.this, "Choose another measure unit to convert to",Toast.LENGTH_SHORT).show();
         }
-
+        catch (NumberFormatException e){
+            System.err.println("ILLEGAL STATE EXCEPTION ENCOUNTERED. POSSIBLY A VALUE TO CONVERT WAS NOT ENTERED");
+            Toast.makeText(MainActivity.this, "Please enter a value to convert",Toast.LENGTH_SHORT).show();
+        }
 
     }
 }
