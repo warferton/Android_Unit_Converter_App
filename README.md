@@ -11,3 +11,12 @@
 
 <b>APK Version: </b><i>27</i>
 
+<h3>Screenshots</h3>
+
+<p>App in <b>Vertical</b></p>
+
+<img src="Screenshot 2021-01-31 at 22.48.57"/>
+
+<p>App in <b>Horizontal</b></p>
+
+<img src="Screenshot 2021-01-31 at 22.40.36"/>
