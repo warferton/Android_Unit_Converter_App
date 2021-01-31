@@ -20,3 +20,7 @@
 <p>App in <b>Horizontal</b></p>
 
 <img src="https://github.com/warferton/Android_Unit_Converter_App/blob/master/Screenshot%202021-01-31%20at%2022.40.36.png"/>
+
+<p>App value entry <b>keyboard</b> open</p>
+
+<img src="https://github.com/warferton/Android_Unit_Converter_App/blob/master/Screenshot%202021-01-31%20at%2023.17.30.png"/>
