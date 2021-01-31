@@ -1,4 +1,4 @@
-# Android_Unit_Converter_App
+# Android Unit Converter App
 
 <h3>Description</h3>
 <p> A simple Android Application that converts mass unit:s</p>
