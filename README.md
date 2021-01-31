@@ -1,7 +1,7 @@
 # Android Unit Converter App
 
 <h3>Description</h3>
-<p> A simple Android Application that converts mass unit:s</p>
+<p> A simple Android Application that converts mass units</p>
 <ul>
   <li>Kilograms</li>
   <li>Pounds</li>
