@@ -9,5 +9,5 @@
   <li>Ounces</li>
 </ul>
 
-<b>APK Version:</b><i>27</i>
+<b>APK Version: </b><i>27</i>
 
