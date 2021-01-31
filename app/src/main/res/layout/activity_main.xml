@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#08082E"
     tools:context=".MainActivity">
 
     <TextView
@@ -21,79 +22,125 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/resultLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/convertedValue"
-        android:textColor="#000000"
+        android:textColor="@color/white"
         android:textSize="50sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appLabel" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="415dp"
+        android:layout_height="170dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appLabel">
 
         <EditText
-            android:id="@+id/editTextNumberDecimal3"
+            android:id="@+id/convert_value"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60sp"
             android:layout_marginBottom="10dp"
             android:autofillHints=""
+            android:background="#2196F3"
             android:ems="10"
             android:gravity="center"
+            android:hapticFeedbackEnabled="true"
             android:hint="@string/unitValueHint"
             android:inputType="numberDecimal"
-            android:textColor="#000000"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
-        <Spinner
-            android:id="@+id/unitSpinnerOne"
+        <TableLayout
+            android:id="@+id/table_lay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/units_array"
-            android:gravity="center_horizontal"
-            android:spinnerMode="dropdown"
-            android:textAlignment="center" />
+            android:background="@drawable/purple_rounded_edges">
+
+            <TableRow
+                android:id="@+id/table_row_1"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:gravity="center">
+
+                <Spinner
+                    android:id="@+id/unitSpinnerOne"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="true"
+                    android:entries="@array/units_array"
+                    android:gravity="center_horizontal"
+                    android:paddingStart="0sp"
+                    android:paddingLeft="0sp"
+                    android:paddingTop="0sp"
+                    android:paddingEnd="-10sp"
+                    android:paddingRight="-10sp"
+                    android:paddingBottom="0sp"
+                    android:spinnerMode="dropdown"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/table_row_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#8E278C"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/toLabel"
+                    android:layout_width="176dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/toLabel"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/table_row_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:hapticFeedbackEnabled="true">
+
+                <Spinner
+                    android:id="@+id/unitSpinnerTwo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/units_array"
+                    android:gravity="center_horizontal"
+                    android:padding="0sp"
+                    android:paddingStart="0sp"
+                    android:paddingLeft="0sp"
+                    android:paddingTop="0sp"
+                    android:paddingEnd="-10sp"
+                    android:paddingRight="-10sp"
+                    android:paddingBottom="0sp"
+                    android:textAlignment="center" />
+            </TableRow>
+
+        </TableLayout>
+
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
+    <Button
+        android:id="@+id/convertButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:onClick="convert"
+        android:rotationX="22"
+        android:text="@string/convert_button_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appLabel">
-
-        <EditText
-            android:id="@+id/editTextNumberDecimal2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:gravity="center"
-            android:hint="@string/unitValueHint"
-            android:inputType="numberDecimal"
-            android:textColor="#000000"
-            android:textStyle="bold" />
-
-        <Spinner
-            android:id="@+id/unitSpinnerTwo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/units_array"
-            android:gravity="center_horizontal"
-            android:textAlignment="center" />
-    </LinearLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
