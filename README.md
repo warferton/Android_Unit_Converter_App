@@ -1,5 +1,5 @@
 # Android Unit Converter App
-
+_COMP 2160_01 Assignment 2 | Alex Kirillov_
 <h3>Description</h3>
 <p> A simple Android Application that converts mass units</p>
 <ul>
